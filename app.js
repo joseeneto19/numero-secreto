@@ -6,6 +6,7 @@ let tentativas = 1;
 function exibirTextoNaTela(tag, texto) {
   let campo = document.querySelector(tag);
   campo.innerHTML = texto;
+  responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
 }
 
 function exibirMensagemInicial() {
@@ -20,7 +21,7 @@ function verificarChute() {
 
   if (chute == numeroSecreto) {
     exibirTextoNaTela("h1", "Acertou");
-    let palavraTentativa = tentativas > 1 ? "tentativas" : "tentaiva";
+    let palavraTentativa = tentativas > 1 ? "tentativas" : "tentativa";
     let mensagemTentativas = `Você descobriu o numero secreto com ${tentativas} ${palavraTentativa}!`;
     exibirTextoNaTela("p", mensagemTentativas);
     document.getElementById('reiniciar').removeAttribute('disabled')
